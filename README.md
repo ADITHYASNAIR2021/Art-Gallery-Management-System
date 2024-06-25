@@ -19,7 +19,15 @@ SQL Query Executor is a web-based application that allows users to execute SQL q
 ## Contact
 
 Jasmine T. Bhaskar - https://www.amrita.edu/faculty/jasmine/ 
+
+
 Adithya S Nair - adithyasnair2021@gmail.com (Student)
+
+
 Athul Gireesh - athulg2002@gmail.com (Student)
+
+
 Anoop Boby Manuel (Student)
+
+
 Navneeth Krishna (Student)
