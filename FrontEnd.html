@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART GALLERY DATABASE</title>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Aclonica' rel="noopener">
+    <style>
+        body {
+            background-color: lavenderblush;
+            background: url("./Images/Main.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h2 {
+            border: 13px groove powderblue;
+            border-radius: 7px;
+            padding: 5px 24px;
+            color: floralwhite;
+            font-family: sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            margin-top: 3.5rem;
+        }
+
+        .menu {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .menu ul {
+            margin-top: 19rem;
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .menu ul li {
+            display: inline-block;
+            width: 180px;
+            height: 49px;
+            line-height: 40px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .menu ul li a {
+            color: white;
+            display: block;
+            font-size: 20px;
+            text-decoration: none;
+            font-family: Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        .menu ul li a:hover {
+            background-color: rgb(36, 202, 111);
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+        }
+
+        .intro {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin: 2rem auto;
+            max-width: 800px;
+            font-size: 1.2em;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .artworks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .artworks .artwork {
+            flex: 1 1 calc(25% - 20px);
+            margin: 5px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .artworks .artwork img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .artworks .artwork h3 {
+            margin: 10px 0;
+        }
+
+        .pic {
+            position: absolute;
+            top: 60px;
+            right: 40px;
+        }
+
+        .pic img {
+            width: 150px;
+            border-radius: 10px;
+            border: 3px solid white;
+        }
+        .amrita {
+            position: absolute;
+            top: 60px;
+            left: 40px;
+        }
+
+        .amrita img {
+            width: 150px;
+            border-radius: 10px;
+            border: 3px solid white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>ART GALLERY MANAGEMENT SYSTEM</h2>
+    </center>
+
+    <div class="pic">
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=56405435300" target="_blank"><img src="./Images/Jasmine mam.jpg" alt="DBMS Mam"></a>
+    </div>
+
+    <div class="amrita">
+        <img src="./Images/amrita.jpg" alt='Amrita'>
+    </div>
+    
+    <div class="menu">
+        <ul>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="exhibition.html">EXHIBITION</a></li>
+            <li><a href="artwork.html">ARTWORK</a></li>
+            <li><a href="customer.html">CUSTOMER</a></li>
+            <li><a href="artist.html">ARTIST</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+            <li><a href="search.html">SEARCH</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2024 Art Gallery. All rights reserved, DBMS Project Team 5 ❤.
+    </footer>
+</body>
+
+</html>

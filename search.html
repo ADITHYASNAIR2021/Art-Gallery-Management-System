@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Executor</title>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Candal|Carter+One|Jockey+One'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url("https://images.unsplash.com/photo-1515169273894-7e876dcf13da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center fixed;
+            background-size: cover;
+            font-family: sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-decoration: underline;
+            color: red;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 40px;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            color: black;
+            font-size: 2em;
+            font-family: sans-serif;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+        }
+
+        textarea {
+            width: 45rem;
+            height: 13rem; /* Fixed height */
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px; /* Match button font size */
+            resize: none; /* Disable resizing */
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-family: sans-serif;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgb(36, 202, 111);
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="exhibition.html">EXHIBITION</a></li>
+            <li><a href="artwork.html">ARTWORK</a></li>
+            <li><a href="customer.html">CUSTOMER</a></li>
+            <li><a href="artist.html">ARTIST</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+            <li><a href="FrontEnd.html"><i class="fas fa-arrow-left"></i> GO BACK</a></li>
+        </ul>
+    </div>
+
+    <center>
+        <h1>SQL Query Executor</h1>
+    </center>
+
+    <div class="intro">
+        <b>Enter your SQL query below:</b>
+    </div>
+
+    <div class="button-container">
+        <button onclick="showQuery(1)">Aggregate</button>
+        <button onclick="showQuery(2)">Order By</button>
+        <button onclick="showQuery(3)">Join, Outer Join</button>
+        <button onclick="showQuery(4)">Boolean Operators</button>
+        <button onclick="showQuery(5)">Arithmetic Operators</button>
+        <button onclick="showQuery(6)">String Operators</button>
+        <button onclick="showQuery(7)">Extract</button>
+        <button onclick="showQuery(8)">Between</button>
+        <button onclick="showQuery(9)">Not IN</button>
+        <button onclick="showQuery(10)">Set Operations</button>
+        <button onclick="showQuery(11)">EXISTS</button>
+        <button onclick="showQuery(12)">NOT EXISTS</button>
+        <button onclick="showQuery(13)">IN</button>
+        <button onclick="showQuery(14)">Not Between</button>
+        <button onclick="showQuery(15)">To_char</button>
+    </div>
+
+    <form method="post" action="execute_query.php">
+        <textarea name="sql_query" id="sqlQuery" placeholder="Enter your SQL query here..." required></textarea>
+        <br>
+        <button type="submit">Execute Query</button>
+    </form>
+
+    <footer>&copy; 2024 Art Gallery. All rights reserved, DBMS Project Team 5.</footer>
+
+    <script>
+        function showQuery(queryNumber) {
+            switch (queryNumber) {
+                case 1:
+                    document.getElementById('sqlQuery').value = `SELECT type_of_art, COUNT(*) AS total_artworks
+FROM artwork
+GROUP BY type_of_art
+HAVING COUNT(*) > 1;`;
+                    break;
+                case 2:
+                    document.getElementById('sqlQuery').value = `SELECT custid, fname, lname, dob, address
+FROM customer
+ORDER BY fname ASC;`;
+                    break;
+                case 3:
+                    document.getElementById('sqlQuery').value = `SELECT a.artistid, a.fname1, a.lname1, g.gname, g.location
+FROM artist a
+LEFT JOIN gallery g ON a.gid = g.gid;`;
+                    break;
+                case 4:
+                    document.getElementById('sqlQuery').value = `SELECT custid, fname, lname, address
+FROM customer
+WHERE address = 'New York' OR address = 'Paris';`;
+                    break;
+                case 5:
+                    document.getElementById('sqlQuery').value = `SELECT artid, title, price
+FROM artwork
+WHERE price > (SELECT AVG(price) FROM artwork);`;
+                    break;
+                case 6:
+                    document.getElementById('sqlQuery').value = `SELECT artistid, fname1, lname1
+FROM artist
+WHERE fname1 LIKE 'P%';`;
+                    break;
+                case 7:
+                    document.getElementById('sqlQuery').value = `SELECT custid, fname, lname, EXTRACT(YEAR FROM dob) AS birth_year
+FROM customer;`;
+                    break;
+                case 8:
+                    document.getElementById('sqlQuery').value = `SELECT artid, title, year
+FROM artwork
+WHERE year BETWEEN '1900' AND '2000';`;
+                    break;
+                case 9:
+                    document.getElementById('sqlQuery').value = `SELECT custid, fname, lname, address
+FROM customer
+WHERE address NOT IN ('New York', 'Paris');`;
+                    break;
+                case 10:
+                    document.getElementById('sqlQuery').value = `SELECT fname, lname, address FROM customer
+UNION
+SELECT fname1 AS fname, lname1 AS lname, birthplace AS address FROM artist;`;
+                    break;
+                case 11:
+                    document.getElementById('sqlQuery').value = `SELECT c.custid, c.fname, c.lname
+FROM customer c
+WHERE EXISTS (
+    SELECT 1
+    FROM artwork a
+    WHERE a.artid = c.artworkid AND a.price > 1000000
+);`;
+                    break;
+                case 12:
+                    document.getElementById('sqlQuery').value = `SELECT g.gid, g.gname, g.location
+FROM gallery g
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM exhibition e
+    WHERE e.gid = g.gid
+);`;
+                    break;
+                case 13:
+                    document.getElementById('sqlQuery').value = `SELECT artistid, fname1, lname1
+FROM artist
+WHERE gid IN (
+    SELECT gid
+    FROM gallery
+    WHERE gname IN ('METROPOLITAN MUSEUM', 'THE LOUVRE MUSEUM')
+);`;
+                    break;
+                case 14:
+                    document.getElementById('sqlQuery').value = `
+                    SELECT artid, title, year FROM artwork WHERE year NOT BETWEEN '1900' AND '2000';`;
+                    break;
+                case 15:
+                    document.getElementById('sqlQuery').value = `SELECT custid, fname, lname, DATE_FORMAT(dob, '%d-%m-%Y') AS formatted_dob
+FROM customer;`;
+                    break;
+                default:
+                    document.getElementById('sqlQuery').value = '';
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

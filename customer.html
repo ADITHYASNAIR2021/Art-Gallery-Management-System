@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibition</title>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Candal|Carter+One|Jockey+One'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url("https://images.unsplash.com/photo-1515169273894-7e876dcf13da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center fixed;
+            background-size: cover;
+            font-family: sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+			text-decoration: underline;
+			color: red;
+			margin-top: 3rem;
+            text-align: center;
+            font-size: 40px;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            /* margin-top: 1rem; */
+			/* padding: 10px; */
+			color: black;
+            font-size: 2em;
+			font-family: sans-serif;
+        }
+
+        .menu {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            margin: 0;
+        }
+
+        .menu ul li {
+            margin: 10px 0;
+        }
+
+        .menu ul li a {
+            display: block;
+            width: 700px;
+            height: 80px;
+            line-height: 80px;
+            background-color: rgba(123, 104, 238, 0.8);
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu ul li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-family: sans-serif;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgb(36, 202, 111);
+            color: black;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+			font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="exhibition.html">EXHIBITION</a></li>
+            <li><a href="artwork.html">ARTWORK</a></li>
+            <li><a href="customer.html">CUSTOMER</a></li>
+            <li><a href="artist.html">ARTIST</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+        </ul>
+    </div>
+
+    <center>
+        <h1>
+            Customer DB
+        </h1>
+    </center>
+
+    <div class="intro">
+        <b>SELECT FROM BELOW:</b>
+    </div>
+
+	<div class="menu">
+		<ul>
+			<li><a href="cinsert.html">INSERT VALUES INTO THE CUSTOMER</a></li>
+			<li><a href="csearch.php">SEARCH VALUES FROM THE CUSTOMER</a></li>
+			<li><a href="cdisplay.php">DISPLAY CONTENTS FROM THE CUSTOMER TABLE</a></li>
+			<li><a href="cstored.php">STORED PROCEDURE OF THE CUSTOMER</a></li>
+			<li><a href="cdelete.php">DELETE VALUES FROM THE CUSTOMER</a></li>
+            <li><a href="FrontEnd.html"><i class="fas fa-arrow-left"></i> GO BACK</a></li>
+		</ul>
+	</div>
+
+    <footer>
+        &copy; 2024 Art Gallery. All rights reserved, DBMS Project Team 5.
+    </footer>
+</body>
+
+</html>
